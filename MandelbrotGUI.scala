@@ -2,7 +2,6 @@ package sandelbrot
 
 import scala.swing._
 import event._
-import Mandelbrot.foreach_point
 
 
 object MandelbrotGUI extends scala.swing.SimpleSwingApplication {
