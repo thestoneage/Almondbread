@@ -17,7 +17,7 @@ object MandelbrotGUI extends scala.swing.SimpleSwingApplication {
       }
       preferredSize = new Dimension(640, 480)
     }
-    contents = new BorderPanel() {
+    contents = new BorderPanel {
       add(panel, BorderPanel.Position.Center)
       add(button, BorderPanel.Position.South)
     }

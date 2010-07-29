@@ -7,7 +7,7 @@ object Mandelbrot {
   def main(args: Array[String]) {
     
     each_point(80, 20, (x:Int, y:Int, v:Int) => {
-        if (x==0) println()
+        if (x==0) println
         if (v < 255) print("-") else print("#")
     })
   }
@@ -26,7 +26,7 @@ object Mandelbrot {
     Range.Double(-1.0, 1.0, 2.0/20.0).foreach(i => {
       Range.Double(-2.0, 1.0, 3.0/80.0).foreach(r => 
         print(if (escapeTime(new Complex(r,i)) < 255) '-' else '*'))
-        println()
+        println
       })
   }
   // More Functional approach
