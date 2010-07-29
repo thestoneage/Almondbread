@@ -3,7 +3,7 @@ require 'complex' unless defined? Complex
 class << (Mandelbrot = Object.new)
     def escape_time(c)
         z, step = 0, 0
-        while (step < 256 && z.abs < 2)
+        while step < 256 && z.abs < 2
             z = z * z + c
             step += 1
         end
