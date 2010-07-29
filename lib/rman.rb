@@ -1,7 +1,7 @@
 require 'complex'
 
-module Mandelbrot
-    def self.escape_time(c)
+class << (Mandelbrot = Object.new)
+    def escape_time(c)
         z, step = 0, 0
         while (step < 256 and z.abs < 2)
             z = z * z + c
@@ -12,7 +12,7 @@ module Mandelbrot
     end
 
     #Print a mandelbrot set to std_out
-    def self.print_set(width = 80, height = 24)
+    def print_set(width = 80, height = 24)
         (-1.0..1.0).step(2.0/(height - 1)).each do |y|
             (-2.0..0.5).step(2.5/(width - 1)) do |x|
                 print escape_time(Complex(x, y)) < 255 ? '*' : ' '
@@ -21,7 +21,7 @@ module Mandelbrot
         end
     end
 
-    def self.each_point(crange, resolution)
+    def each_point(crange, resolution)
         r, i = crange.real.first, crange.imaginary.first
         step_r, step_i = crange.real.length / resolution.width, crange.imaginary.length / resolution.height
         resolution.height.times do |y|
