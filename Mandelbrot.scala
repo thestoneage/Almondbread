@@ -31,9 +31,9 @@ object Mandelbrot {
   def each_point(width:Int, height:Int, func: (Int, Int, Int) => Unit) {
     val rs = 3.0/width
     val is = 2.0/height
-    for (i <- (0 to height).map(y => (-1.0 + is * y, y)))
-        for (r <- (0 to width).map(x => (-2.0 + rs * x, x)))
-            func(r._2, i._2, escapeTime(new Complex(r._1, i._1)))
+    for ((ir, ii) <- (0 to height).map(y => (-1.0 + is * y, y)))
+        for ((rr, ri) <- (0 to width).map(x => (-2.0 + rs * x, x)))
+            func(ri, ii, escapeTime(new Complex(rr, ir)))
   }
 
   // More Procedural
