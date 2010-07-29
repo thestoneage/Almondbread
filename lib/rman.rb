@@ -46,7 +46,7 @@ end
 
 class Range
     def length
-        self.last - self.first
+        last - first
     end
 end
 
