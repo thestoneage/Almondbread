@@ -12,7 +12,7 @@ object Mandelbrot {
   
   def escapeTime(c: Complex) = {
     var step = 0
-    var z = Complex(0.0, 0.0)
+    var z = Complex()
     while (step < 256 && z.abs < 4) {
       z = (z * z) + c
       step += 1
