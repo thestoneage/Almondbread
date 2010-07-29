@@ -1,4 +1,4 @@
-require 'complex'
+require 'complex' unless defined? Complex
 
 class << (Mandelbrot = Object.new)
     def escape_time(c)
