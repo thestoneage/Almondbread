@@ -22,7 +22,7 @@ object Mandelbrot {
     step
   }
   
-  def printMandelSet() {
+  def printMandelSet {
     Range.Double(-1.0, 1.0, 2.0/20.0).foreach(i => {
       Range.Double(-2.0, 1.0, 3.0/80.0).foreach(r => 
         print(if (escapeTime(new Complex(r,i)) < 255) '-' else '*'))
