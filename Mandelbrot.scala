@@ -4,7 +4,7 @@ object Mandelbrot {
 
   def main(args: Array[String]) {
     
-    each_point(80, 20, (x:Int, y:Int, v:Int) => {
+    each_point(80, 20, (x, y, v) => {
         if (x==0) println
         if (v < 255) print("-") else print("#")
     })
