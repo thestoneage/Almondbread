@@ -12,7 +12,7 @@ object Mandelbrot {
   
   def escapeTime(c: Complex) = {
     var step = 0
-    var z = new Complex(0.0, 0.0)
+    var z = Complex(0.0, 0.0)
     while (step < 256 && z.abs < 4) {
       z = (z * z) + c
       step += 1
@@ -23,7 +23,7 @@ object Mandelbrot {
   def printMandelSet {
     for (i <- -1.0 to 1.0 by 2.0/20.0) {
       for (r <- -2.0 to 1.0 by 3.0/80.0)
-        print(if (escapeTime(new Complex(r,i)) < 255) '-' else '*')
+        print(if (escapeTime(Complex(r,i)) < 255) '-' else '*')
       println
     }
   }
@@ -33,7 +33,7 @@ object Mandelbrot {
     val is = 2.0/height
     for ((ir, ii) <- (0 to height).map(y => (-1.0 + is * y, y)))
         for ((rr, ri) <- (0 to width).map(x => (-2.0 + rs * x, x)))
-            func(ri, ii, escapeTime(new Complex(rr, ir)))
+            func(ri, ii, escapeTime(Complex(rr, ir)))
   }
 
   // More Procedural
@@ -42,7 +42,7 @@ object Mandelbrot {
     var i = -1.0
     for (y <- 0 to height) {
         for (x <- 0 to width) {
-            func(x, y, escapeTime(new Complex(r, i)))
+            func(x, y, escapeTime(Complex(r, i)))
             r += (3.0/width)
         }
       r = -2.0
