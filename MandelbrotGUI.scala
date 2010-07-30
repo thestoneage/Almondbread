@@ -28,7 +28,7 @@ object MandelbrotGUI extends scala.swing.SimpleSwingApplication {
     listenTo(button)
     reactions += {
       case ButtonClicked(b) =>
-        Mandelbrot.each_point(width, height, (x, y, v) => {
+        Mandelbrot.eachPoint(width, height, (x, y, v) => {
           image.setRGB(x, y, v + (v << 8) + (v << 16))
         })
         panel.repaint

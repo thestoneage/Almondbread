@@ -6,7 +6,7 @@ object Mandelbrot {
 
   def main(args: Array[String]) {
     
-    each_point(width, height, (x, y, v) => {
+    eachPoint(width, height, (x, y, v) => {
         if (x==0) println
         if (v < 255) print("-") else print("#")
     })
@@ -30,7 +30,7 @@ object Mandelbrot {
     }
   }
   // More Functional approach
-  def each_point(width:Int = width, height:Int = height, func: (Int, Int, Int) => Unit) {
+  def eachPoint(width:Int = width, height:Int = height, func: (Int, Int, Int) => Unit) {
     val rs = 3.0/width
     val is = 2.0/height
     for ((ir, ii) <- (0 to height).map(y => (-1.0 + is * y, y)))
@@ -39,7 +39,7 @@ object Mandelbrot {
   }
 
   // More Procedural
-  def foreach_point(width:Int = width, height:Int = height, func: (Int, Int, Int) => Unit) {
+  def forEachPoint(width:Int = width, height:Int = height, func: (Int, Int, Int) => Unit) {
     var r = -2.0
     var i = -1.0
     for (y <- 0 to height) {
