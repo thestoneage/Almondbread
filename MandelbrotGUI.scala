@@ -5,7 +5,11 @@ import event._
 
 
 object MandelbrotGUI extends scala.swing.SimpleSwingApplication {
-  val image = new java.awt.image.BufferedImage(641, 481, java.awt.image.BufferedImage.TYPE_INT_RGB)
+  private val width = 640
+  private val height = 480
+
+  private val image = new java.awt.image.BufferedImage(width+1,height+1, java.awt.image.BufferedImage.TYPE_INT_RGB)
+
   def top = new scala.swing.MainFrame {
     title = "Mandelbrot"
     val button = new Button {
@@ -15,7 +19,7 @@ object MandelbrotGUI extends scala.swing.SimpleSwingApplication {
       override def paint(g:scala.swing.Graphics2D) = {
         g.drawImage(image, 0, 0, null)
       }
-      preferredSize = new Dimension(640, 480)
+      preferredSize = new Dimension(width, height)
     }
     contents = new BorderPanel {
       add(panel, BorderPanel.Position.Center)
@@ -24,7 +28,7 @@ object MandelbrotGUI extends scala.swing.SimpleSwingApplication {
     listenTo(button)
     reactions += {
       case ButtonClicked(b) =>
-        Mandelbrot.each_point(640, 480, (x, y, v) => {
+        Mandelbrot.each_point(width, height, (x, y, v) => {
           image.setRGB(x, y, v + (v << 8) + (v << 16))
         })
         panel.repaint

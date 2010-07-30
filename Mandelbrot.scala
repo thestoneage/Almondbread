@@ -1,10 +1,12 @@
 package sandelbrot
 
 object Mandelbrot {
+  private val width = 80
+  private val height = 20
 
   def main(args: Array[String]) {
     
-    each_point(80, 20, (x, y, v) => {
+    each_point(width, height, (x, y, v) => {
         if (x==0) println
         if (v < 255) print("-") else print("#")
     })
@@ -20,15 +22,15 @@ object Mandelbrot {
     step
   }
   
-  def printMandelSet {
-    for (i <- -1.0 to 1.0 by 2.0/20.0) {
-      for (r <- -2.0 to 1.0 by 3.0/80.0)
+  def printMandelSet(width:Int = width, height:Int = height) {
+    for (i <- -1.0 to 1.0 by 2.0/height) {
+      for (r <- -2.0 to 1.0 by 3.0/width)
         print(if (escapeTime(Complex(r,i)) < 255) '-' else '*')
       println
     }
   }
   // More Functional approach
-  def each_point(width:Int, height:Int, func: (Int, Int, Int) => Unit) {
+  def each_point(width:Int = width, height:Int = height, func: (Int, Int, Int) => Unit) {
     val rs = 3.0/width
     val is = 2.0/height
     for ((ir, ii) <- (0 to height).map(y => (-1.0 + is * y, y)))
@@ -37,7 +39,7 @@ object Mandelbrot {
   }
 
   // More Procedural
-  def foreach_point(width:Int, height:Int, func: (Int, Int, Int) => Unit) {
+  def foreach_point(width:Int = width, height:Int = height, func: (Int, Int, Int) => Unit) {
     var r = -2.0
     var i = -1.0
     for (y <- 0 to height) {
