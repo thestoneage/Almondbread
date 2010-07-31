@@ -8,7 +8,7 @@ object MandelbrotGUI extends scala.swing.SimpleSwingApplication {
   private val width = 640
   private val height = 480
 
-  private val image = new java.awt.image.BufferedImage(width+1,height+1, java.awt.image.BufferedImage.TYPE_INT_RGB)
+  private val image = new java.awt.image.BufferedImage(width,height, java.awt.image.BufferedImage.TYPE_INT_RGB)
 
   def top = new scala.swing.MainFrame {
     title = "Mandelbrot"
