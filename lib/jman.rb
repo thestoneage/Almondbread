@@ -26,7 +26,7 @@ frame.pack
 frame.show(true)
 
 
-Mandelbrot::each_point(ComplexRange.new((-2.0..0.5), (-1.0..1.0)), Resolution.new(image.width, image.height)) { |value, x, y|
+Mandelbrot.each_point(ComplexRange.new((-2.0..0.5), (-1.0..1.0)), Resolution.new(image.width, image.height)) { |value, x, y|
     image.setRGB(x, y, value + (value << 8) + (value << 16))
     frame.repaint
 }
