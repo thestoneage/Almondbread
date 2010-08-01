@@ -15,7 +15,7 @@ module Almondbread
       g.draw_image(@image, 0, 0, self)
     end
 
-    def getPreferredSize()
+    def getPreferredSize
       java.awt.Dimension.new(@image.width, @image.height)
     end
   end
