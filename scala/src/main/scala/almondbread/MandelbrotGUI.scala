@@ -1,4 +1,4 @@
-package sandelbread
+package almondbread
 
 import scala.swing._
 import event._

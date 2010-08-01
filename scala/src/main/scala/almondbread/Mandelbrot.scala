@@ -1,4 +1,4 @@
-package sandelbread
+package almondbread
 
 object Mandelbrot {
   private val width = 80
