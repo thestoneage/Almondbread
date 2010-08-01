@@ -7,7 +7,7 @@ object Mandelbrot {
   def main(args: Array[String]) {
     eachPoint(width, height, (x, y, v) => {
         if (x==0) println
-        if (v < 255) print("-") else print("#")
+        print(if (v < 255) "-" else "#")
       })
   }
 
