@@ -11,7 +11,7 @@ class << (Mandelbrot = Object.new)
         return step
     end
 
-    #Print a mandelbrot set to std_out
+    #Print a mandelbrot set to stdout
     def print_set(width = 80, height = 24)
         (-1.0..1.0).step(2.0/(height - 1)).each do |y|
             (-2.0..0.5).step(2.5/(width - 1)) do |x|
