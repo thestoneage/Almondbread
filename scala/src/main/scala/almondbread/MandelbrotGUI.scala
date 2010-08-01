@@ -22,7 +22,7 @@ object MandelbrotGUI extends scala.swing.SimpleSwingApplication {
   override def startup(args: Array[String]) = {
     super.startup(args)
     Mandelbrot.eachPoint(width, height, (x, y, v) => {
-      image.setRGB(x, y, v.toByte)
+        image.setRGB(x, y, v.toByte)
       })
   }
 }
