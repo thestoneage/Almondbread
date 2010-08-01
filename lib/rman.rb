@@ -2,7 +2,7 @@ require 'complex'
 
 module Mandelbrot
     def self.escape_time(c)
-        z, step = 0, 0
+        z, step = Complex(0,0), 0
         while (step < 256 and z.abs < 2)
             z = z * z + c
             step += 1
