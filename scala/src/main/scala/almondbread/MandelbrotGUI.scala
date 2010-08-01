@@ -12,6 +12,7 @@ object MandelbrotGUI extends scala.swing.SimpleSwingApplication {
     title = "Mandelbrot"
     contents = new Panel {
       override def paint(g:scala.swing.Graphics2D) = {
+        super.paint(g)
         g.drawImage(image, 0, 0, null)
       }
       preferredSize = new Dimension(width, height)
