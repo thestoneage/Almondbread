@@ -3,7 +3,6 @@ package sandelbread
 import scala.swing._
 import event._
 
-
 object MandelbrotGUI extends scala.swing.SimpleSwingApplication {
   private val width = 640
   private val height = 480
@@ -14,7 +13,7 @@ object MandelbrotGUI extends scala.swing.SimpleSwingApplication {
     title = "Mandelbrot"
     val button = new Button {
       text = "Start"
-    } 
+    }
     val panel = new Panel {
       override def paint(g:scala.swing.Graphics2D) = {
         g.drawImage(image, 0, 0, null)
@@ -29,10 +28,9 @@ object MandelbrotGUI extends scala.swing.SimpleSwingApplication {
     reactions += {
       case ButtonClicked(b) =>
         Mandelbrot.eachPoint(width, height, (x, y, v) => {
-          image.setRGB(x, y, v + (v << 8) + (v << 16))
-        })
+            image.setRGB(x, y, v + (v << 8) + (v << 16))
+          })
         panel.repaint
-        
     }
   }
 }
