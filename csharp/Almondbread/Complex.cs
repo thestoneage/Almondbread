@@ -2,7 +2,7 @@
 
 namespace Almondbread
 {
-    internal sealed class Complex
+    internal struct Complex
     {
         internal static Complex ZERO = new Complex();
         private double real;
