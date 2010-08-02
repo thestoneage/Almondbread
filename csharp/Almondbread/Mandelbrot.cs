@@ -18,7 +18,7 @@ namespace Almondbread
                 Console.Write(v < 255 ? "-" : "#");
             });
             Console.WriteLine();
-            PrintMandelSet();
+            PrintMandelSet(width, height);
         }
 
         private static short EscapeTime(Complex c)
@@ -34,10 +34,10 @@ namespace Almondbread
 
         private static short EscapeTime2(Complex c)
         {
-            return EscapeTime2Recursive(c, Complex.ZERO);
+            return EscapeTime2Recursive(c, Complex.ZERO, 0);
         }
 
-        private static short EscapeTime2Recursive(Complex c, Complex z, short step = 0)
+        private static short EscapeTime2Recursive(Complex c, Complex z, short step)
         {
             if (step > 256 || z > 4)
             {
@@ -46,7 +46,7 @@ namespace Almondbread
             return EscapeTime2Recursive(c, z * z + c, (short)(step + 1));
         }
 
-        private static void PrintMandelSet(int width = width, int height = height)
+        private static void PrintMandelSet(int width, int height)
         {
             for (double i = -1.0; i < 1.0; i += 2.0 / height)
             {
