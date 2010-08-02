@@ -58,3 +58,5 @@ class Range
     last - first
   end
 end
+
+Almondbread::Mandelbrot.print_set if __FILE__ == $0
