@@ -15,7 +15,7 @@ object Mandelbrot {
     var step = 0
     var z = Complex()
     while (step < 256 && z.abs < 4) {
-      z = (z * z) + c
+      z = z * z + c
       step += 1
     }
     step
