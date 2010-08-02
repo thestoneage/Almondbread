@@ -28,7 +28,7 @@ final class Mandelbrot {
     }
 
     private static final short escapeTime2(final Complex c) {
-        escapeTime2Recursive(c, Complex.ZERO, 0)
+        return escapeTime2Recursive(c, Complex.ZERO, (short)0);
     }
 
     private static final short escapeTime2Recursive(final Complex c, final Complex z, final short step) {
