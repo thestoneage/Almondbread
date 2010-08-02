@@ -36,6 +36,7 @@ namespace Almondbread
             return new Complex(a.real * b.real - a.imag * b.imag,
                     a.imag * b.real + a.real * b.imag);
         }
+
         public static implicit operator double(Complex c)
         {
             return c.abs;
