@@ -28,13 +28,7 @@ final class Mandelbrot {
     }
 
     private static final short escapeTime2(final Complex c) {
-        short step = 0;
-        Complex z = Complex.ZERO;
-        while (step++ < 256 && z.abs < 4) {
-            z = z.mul(z).add(c);
-            step++;
-        }
-        return step;
+        escapeTime2Recursive(c, Complex.ZERO, 0)
     }
 
     private static final short escapeTime2Recursive(final Complex c, final Complex z, final short step) {
