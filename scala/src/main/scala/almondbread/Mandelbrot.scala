@@ -63,8 +63,7 @@ object Mandelbrot {
   def eachPoint3(width:Int = width, height:Int = height, func: (Int, Int, Int) => Unit) {
     val rs = 3.0/width
     val is = 2.0/height
-    for ((ir, ii) <- (0 until height).map(y => (-1.0 + is * y, y));
-         (rr, ri) <- (0 until width ).map(x => (-2.0 + rs * x, x))
-    ) func(ri, ii, escapeTime2(Complex(rr, ir)))
+    for (y <- 0 until height; x <- 0 until width)
+      func(x, y, escapeTime2(Complex(-2.0 + rs * x, -1.0 + is * y)))
   }
 }
