@@ -11,7 +11,7 @@ object Mandelbrot {
       })
   }
 
-  def escapeTime(c: Complex) = {
+  private def escapeTime(c: Complex) = {
     var step = 0
     var z = Complex()
     while (step < 256 && z.abs < 4) {
@@ -26,7 +26,7 @@ object Mandelbrot {
     else escapeTime2(c, z * z + c, step + 1)
   }
 
-  def printMandelSet(width:Int = width, height:Int = height) {
+  private def printMandelSet(width:Int = width, height:Int = height) {
     for (i <- -1.0 to 1.0 by 2.0/height) {
       for (r <- -2.0 to 1.0 by 3.0/width)
         print(if (escapeTime2(Complex(r,i)) < 255) '-' else '*')
