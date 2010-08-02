@@ -23,7 +23,6 @@ final class Mandelbrot {
         Complex z = Complex.ZERO;
         while (step++ < 256 && z.abs < 4) {
             z = z.mul(z).add(c);
-            step++;
         }
         return step;
     }
