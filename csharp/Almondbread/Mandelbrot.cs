@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Almondbread
 {
@@ -60,17 +61,13 @@ namespace Almondbread
 
         internal static void EachPoint(int width, int height, Action<int, int, short> func)
         {
-            var r = -2.0;
-            var i = -1.0;
-            for (var y = 0; y < height; y++)
+            var r = 3.0 / width;
+            var i = 2.0 / height;
+            foreach (var t in from y in Enumerable.Range(0, height)
+                              from x in Enumerable.Range(0, width)
+                              select new { ir = -1.0 + i * y, ii = y, rr = -2.0 + r * x, ri = x })
             {
-                for (var x = 0; x < width; x++)
-                {
-                    func(x, y, EscapeTime2(new Complex(r, i)));
-                    r += 3.0 / width;
-                }
-                r = -2.0;
-                i += 2.0 / height;
+                func(t.ri, t.ii, EscapeTime2(new Complex(t.rr, t.ir)));
             }
         }
     }
