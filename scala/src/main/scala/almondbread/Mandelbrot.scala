@@ -1,5 +1,7 @@
 package almondbread
 
+import scala.annotation.tailrec
+
 object Mandelbrot {
   private val width = 80
   private val height = 20
@@ -21,6 +23,7 @@ object Mandelbrot {
     step
   }
 
+  @tailrec
   def escapeTime2(c: Complex, z: Complex = Complex(0, 0), step: Int = 0): Int = {
     if (step > 256 || z.abs > 4) step
     else escapeTime2(c, z * z + c, step + 1)
