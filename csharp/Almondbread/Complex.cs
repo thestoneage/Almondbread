@@ -9,7 +9,7 @@ namespace Almondbread
         private double imag;
         private double abs;
 
-        internal Complex(double real = 0, double imag = 0)
+        internal Complex(double real, double imag)
         {
             this.real = real;
             this.imag = imag;
