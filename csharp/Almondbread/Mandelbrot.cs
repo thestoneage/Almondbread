@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Linq;
 
 namespace Almondbread
@@ -19,14 +20,14 @@ namespace Almondbread
                 Console.Write(v < 255 ? "-" : "#");
             });
             Console.WriteLine();
-            PrintMandelSet(width, height);
+            PrintMandelSet();
         }
 
         private static short EscapeTime(Complex c)
         {
             short step = 0;
-            var z = Complex.ZERO;
-            while (step++ < 256 && z < 4)
+            var z = Complex.Zero;
+            while (step++ < 256 && Complex.Abs(z) < 4)
             {
                 z = z * z + c;
             }
@@ -35,19 +36,19 @@ namespace Almondbread
 
         private static short EscapeTime2(Complex c)
         {
-            return EscapeTime2Recursive(c, Complex.ZERO, 0);
+            return EscapeTime2Recursive(c, Complex.Zero);
         }
 
-        private static short EscapeTime2Recursive(Complex c, Complex z, short step)
+        private static short EscapeTime2Recursive(Complex c, Complex z, short step = 0)
         {
-            if (step > 256 || z > 4)
+            if (step > 256 || Complex.Abs(z) > 4)
             {
                 return step;
             }
             return EscapeTime2Recursive(c, z * z + c, (short)(step + 1));
         }
 
-        private static void PrintMandelSet(int width, int height)
+        private static void PrintMandelSet(int width = width, int height = height)
         {
             for (double i = -1.0; i < 1.0; i += 2.0 / height)
             {
