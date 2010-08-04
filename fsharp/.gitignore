@@ -1,0 +1,7 @@
+Almondbread/bin
+Almondbread/obj
+Almondbread.suo
+*.psess
+*.vsp
+*.userprefs
+**/*.pidb
