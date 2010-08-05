@@ -22,7 +22,7 @@ module Almondbread
 
   image = BufferedImage.new(640, 480, BufferedImage::TYPE_INT_RGB)
   frame = JFrame.new("Mandelbrot")
-  frame.default_close_operation = JFrame.EXIT_ON_CLOSE
+  frame.default_close_operation = JFrame::EXIT_ON_CLOSE
   frame.content_pane.add(ImagePanel.new(image))
   frame.pack
   frame.visible = true
