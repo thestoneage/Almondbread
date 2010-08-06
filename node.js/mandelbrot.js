@@ -38,12 +38,10 @@ function each_point(width, height, func) {
 }
 
 each_point(80, 24, function(x, y, v) {
-    if (x == 0)
-        sys.print("\n");
-    if (v < 256)
+   if (v < 256)
         sys.print("#");
     else
         sys.print(" ");
+    if (x == 79)
+        sys.print("\n");
 });
-sys.print("\n");
-
