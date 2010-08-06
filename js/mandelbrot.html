@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Mandelbrot on a Canvas</title>
+        <script type="text/javascript" src="mandelbrot.js"></script>
+        <script type="text/javascript">
+            window.addEventListener('load', function () {
+            var elem = document.getElementById('canvas');
+            var context = elem.getContext('2d');
+            var imgd = context.createImageData(320, 200);
+            var pix = imgd.data;
+            var i = 0;
+            each_point(320, 200, function (x, y, v) {
+            pix[i + 0] = v;
+            pix[i + 1] = v;
+            pix[i + 2] = v;
+            pix[i + 3] = 255;
+            i += 4;
+            });
+           context.putImageData(imgd, 0, 0);
+            });
+        </script>
+    </head>
+    <body>
+        <canvas id="canvas" width="400" height="400">
+    </body>
+</html>
